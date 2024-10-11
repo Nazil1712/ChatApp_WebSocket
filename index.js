@@ -11,8 +11,9 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 io.on("connection", (socket) => {
-  socket.on("user-message", (message) =>{
-    io.emit("message-for-all",message)
+  // console.log("Connection established...",socket)
+  socket.on("user-message", (data) =>{
+    io.emit("message-to-partner",{message: data.message, userId: data.userId})
   });
 });
 
