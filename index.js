@@ -17,10 +17,24 @@ io.on("connection", (socket) => {
   });
 });
 
+const adminNameSpace = io.of("/admin")
+
+adminNameSpace.on("connection",(socket)=>{
+  console.log("Admin Connected",socket.id)
+
+  socket.on("admin-message",(data)=>{
+    adminNameSpace.emit("message-to-admin",{message: data.message, userId: data.userId})
+  })
+})
+
 app.use(express.static(path.resolve("./public")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.resolve("./public/index.html"));
+});
+
+app.get("/admin", (req, res) => {
+  res.sendFile(path.resolve("./public/admin.html"));
 });
 
 server.listen(PORT, () => {

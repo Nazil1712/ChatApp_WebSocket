@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Chat App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- <div>
+        <h1>Chatting...</h1>
+        <input type="text" id="message" placeholder="Enter message">
+        <button id="sendBtn">Send</button>
+        <div id="messages"></div>
+    </div> -->
+
+    <div class="chat-container">
+        <!-- Chat Header -->
+        <div class="chat-header">
+          Admin Chat App
+        </div>
+    
+        <!-- Chat Window (Messages) -->
+        <div class="chat-window" id="chat-window">
+        </div>
+    
+        <!-- Chat Input Area -->
+        <div class="chat-input-container">
+          <input type="text" class="chat-input" id="chat-input" placeholder="Type a message...">
+          <button class="send-button" id="send-button">Send</button>
+        </div>
+      </div>
+
+    <script src="/socket.io/socket.io.js"></script> <!-- This is coming from our backend side (index.js)-->
+
+    <script src="./admin_chat.js"></script>
+</body>
+
+</html>
